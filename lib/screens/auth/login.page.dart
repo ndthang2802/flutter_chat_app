@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_app/provider/auth.provider.dart';
+import 'package:flutter_chat_app/screens/auth/register.page.dart';
 import 'package:flutter_chat_app/screens/home.page.dart';
 import 'package:provider/provider.dart';
 
@@ -97,6 +98,30 @@ class _LoginPageState extends State<LoginPage> {
                     child: Text('Login',
                         style: TextStyle(color: Colors.white, fontSize: 25)),
                   ),
+                ),
+                SizedBox(height: 20),
+                Row(
+                  children: [
+                    Expanded(child: SizedBox()),
+                    Expanded(
+                        child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => RegisterPage()),
+                        );
+                      },
+                      child: Text(
+                        'Register ',
+                        style: TextStyle(
+                            color: Colors.blue,
+                            fontSize: 16,
+                            decoration: TextDecoration.underline),
+                      ),
+                    )),
+                    Expanded(child: SizedBox()),
+                  ],
                 ),
                 SizedBox(height: 15),
                 authProvider.loginState == LoginState.loading

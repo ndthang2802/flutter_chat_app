@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_app/provider/auth.provider.dart';
-import 'package:flutter_chat_app/screens/auth/login.page.dart';
+import 'package:flutter_chat_app/screens/auth/profile.setup.page.dart';
 import 'package:provider/provider.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -20,7 +20,7 @@ class _RegisterPageState extends State<RegisterPage> {
   navigatorToLogin() {
     Timer(Duration(seconds: 2), () {
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => LoginPage()));
+          context, MaterialPageRoute(builder: (context) => ProfileSetUp()));
     });
   }
 

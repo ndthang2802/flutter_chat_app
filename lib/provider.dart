@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chat_app/model/message.dart';
 import 'package:flutter_chat_app/services/api_call.dart';
 import 'package:flutter_chat_app/services/auth.dart';
-import 'package:flutter_chat_app/services/socket_connect.dart';
+//import 'package:flutter_chat_app/services/socket_connect.dart';
 import 'package:socket_io_client/socket_io_client.dart';
 import './model/userModel.dart';
 import './model/conversation.dart';

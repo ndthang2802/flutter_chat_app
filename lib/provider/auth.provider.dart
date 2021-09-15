@@ -18,13 +18,15 @@ enum LoginState {
 class AuthProvider extends ChangeNotifier {
   AutheMethods autheMethods = new AutheMethods();
 
+  late String Userid;
+
   RegisterState registerState = RegisterState.initial;
   LoginState loginState = LoginState.initial;
 
   Future<void> signUp(String email, String password) async {
     registerState = RegisterState.loading;
     try {
-      await autheMethods.registerWithEmail(email, password);
+      Userid = await autheMethods.registerWithEmail(email, password);
       registerState = RegisterState.success;
     } catch (err) {
       registerState = RegisterState.fail;
@@ -43,5 +45,15 @@ class AuthProvider extends ChangeNotifier {
       print('eror from login' + err.toString());
     }
     notifyListeners();
+  }
+
+  Future<void> updateProfile(Map data) async {
+    print(Userid);
+    data['uid'] = Userid;
+    try {
+      await autheMethods.updateProfile(data);
+    } catch (e) {
+      print(e.toString());
+    }
   }
 }

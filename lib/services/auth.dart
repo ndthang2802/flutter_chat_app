@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AutheMethods {
@@ -40,6 +41,14 @@ class AutheMethods {
       } else if (e.code == 'wrong-password') {
         return Future.error('Wrong password provided for that user.');
       }
+    }
+  }
+
+  Future updateProfile(data) async {
+    try {
+      await FirebaseFirestore.instance.collection('users').add(data);
+    } catch (e) {
+      print(e.toString());
     }
   }
 }
